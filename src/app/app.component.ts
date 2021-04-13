@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'interface';
+
+
+  // $(function() {
+  //   // Sidebar toggle behavior
+  //   $('#sidebarCollapse').on('click', function() {
+  //     $('#sidebar, #content').toggleClass('active');
+  //   });
+  // });
 }

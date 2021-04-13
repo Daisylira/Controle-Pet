@@ -1,1 +1,28 @@
-Teste 
+<div class="row">
+    <div class="col-2 menu">
+        <div class="py-4">
+            <h4 class="menu-title">Controle Pet</h4>
+        </div>
+        <ul class="nav flex-column bg-white mb-0 mt-5 menu-option">
+            <li class="nav-item">
+                <a routerLink="/indicadores" routerLinkActive="active" class="nav-link text-dark">
+                    Indicadores
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/pets" routerLinkActive="active" class="nav-link text-dark">
+                    Pets
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/medicamentos" routerLinkActive="active" class="nav-link text-dark">
+                    Medicamentos
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-10">
+        <router-outlet></router-outlet>
+    </div>
+</div>
