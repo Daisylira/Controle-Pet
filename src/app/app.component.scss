@@ -1,3 +1,5 @@
+
+
 .menu {
     &-title{
         color: #F5D418;
@@ -17,3 +19,13 @@
     }
 }
 
+.icon {
+    display: none;
+}
+.active {
+    .icon {
+        padding-left: 10px;;
+        display: inline
+    }
+
+}
