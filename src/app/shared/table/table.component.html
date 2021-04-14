@@ -1,5 +1,5 @@
 <table class="table table-bordered mt-5">
-    <thead>
+    <thead [ngClass]="theadColor">
         <tr>
             <th class="py-4 text-center" *ngFor="let item of listTitle">{{item.title}}</th>
         </tr>
@@ -9,7 +9,7 @@
             <td class="table-content">{{item?.nome}}</td>
             <td class="table-content">{{item?.tipo}}</td>
             <td class="table-content">{{item?.data}}</td>
-            <td class="table-content">
+            <td class="table-content-action">
                 <button type="button" class="btn btn-action-edit mr-4">
                     <fa-icon [icon]="faPen"></fa-icon>
                 </button>

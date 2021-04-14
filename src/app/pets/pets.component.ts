@@ -8,9 +8,14 @@ import { faCoffee, faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class PetsComponent implements OnInit {
 
+  theadColor: string = "thead-color-orange";
+  placeHolderContent: string = "Pesquise o pet aqui"
+  
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.placeHolderContent)
+
   }
 
   listTitle = [

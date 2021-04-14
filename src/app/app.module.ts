@@ -11,6 +11,7 @@ import { IndicadoresComponent } from './indicadores/indicadores.component';
 import { PetsComponent } from './pets/pets.component';
 import { MedicamentosComponent } from './medicamentos/medicamentos.component';
 import { SharedModule } from './shared/shared/shared.module';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SharedModule } from './shared/shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    SharedModule
+    SharedModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

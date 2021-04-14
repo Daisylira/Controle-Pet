@@ -10,6 +10,7 @@ export class TableComponent implements OnInit {
 
   @Input () listTitle: any
   @Input () listContent: any
+  @Input () theadColor: string
   faPen = faPen
   faTrashAlt = faTrashAlt
 

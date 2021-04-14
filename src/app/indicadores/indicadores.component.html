@@ -1,1 +1,33 @@
-<p>indicadores works!</p>
+<div class="col-12 py-3 col-title">
+    <h1 class="mr-5">
+
+        Indicadores
+    </h1>
+</div>
+
+<div class="row mt-5 d-flex justify-content-center">
+    <div class="col-5 col-chart">
+        <div>
+            <div>
+                <div style="display: block">
+                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="options"
+                        height="20vh" width="30vw">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-5 col-chart">
+
+        <div>
+            <div>
+                <div style="display: block">
+                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="options"
+                        height="20vh" width="30vw">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

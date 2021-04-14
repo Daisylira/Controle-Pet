@@ -1,6 +1,17 @@
-.table > thead {
+.table>tbody {
+    background-color: white;
+    vertical-align: inherit;
+}
+
+.thead-color-orange{
     vertical-align: bottom;
     background-color: #D36C53;
+    color: white;
+}
+
+.thead-color-grey{
+    vertical-align: bottom;
+    background-color: #6f767b;
     color: white;
 }
 
@@ -9,6 +20,10 @@
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
     text-align: center;
+    &-action{
+        width: 250px;
+        text-align: center;
+    }
 }
 
 .btn-action{
