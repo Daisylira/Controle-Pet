@@ -1,9 +1,17 @@
-
+html {
+    height: 100vh;
+  }
+  body {
+    min-height: 100vh;
+  }
 
 .menu {
+    border: 1px solid grey;
+    background-color: #FAFAFA !important;
+
     &-title{
         color: #F5D418;
-        font-size: 27px;
+        font-size: 30px;
         letter-spacing: 5px;
         line-height: 56px;
         width: 301px;
@@ -22,10 +30,13 @@
 .icon {
     display: none;
 }
-.active {
+.active { 
+    display: flex;
+    width: 100%;
     .icon {
         padding-left: 10px;;
-        display: inline
+        display: inline;
+        align-self: flex-end;
     }
 
 }
