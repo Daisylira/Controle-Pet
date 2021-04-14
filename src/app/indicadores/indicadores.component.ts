@@ -9,13 +9,18 @@ import { MultiDataSet, Label } from 'ng2-charts';
 })
 export class IndicadoresComponent implements OnInit {
   // Doughnut
-  public doughnutChartLabels: Label[] = ['Em tratamento', 'Doado', 'Disponíveis'];
-  public doughnutChartData: MultiDataSet = [
+  public petsLabels: Label[] = ['Em tratamento', 'Doado', 'Disponíveis'];
+  public pets: MultiDataSet = [
     [3, 2, 5],
   ];
+  public medicamentosLabels: Label[] = ['Cachorro', 'Gato'];
+  public medicamentos: MultiDataSet = [
+    [7, 3],
+  ];
+
   public doughnutChartType: ChartType = 'doughnut';
 
-   options: any = {
+   optionsPets: any = {
     legend: {
       position: 'bottom',
       labels: {
@@ -25,6 +30,21 @@ export class IndicadoresComponent implements OnInit {
     },
     title: {
       text: 'Status dos Pets',
+      display: true,
+      fontSize: 40,
+    }
+  }
+
+  optionsMedicamentos: any = {
+    legend: {
+      position: 'bottom',
+      labels: {
+        fontSize: 20
+      },
+
+    },
+    title: {
+      text: 'Tipos de Pets',
       display: true,
       fontSize: 40,
     }

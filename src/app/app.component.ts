@@ -10,10 +10,4 @@ export class AppComponent {
   title = 'interface';
   faAngleRight = faAngleRight
 
-  // $(function() {
-  //   // Sidebar toggle behavior
-  //   $('#sidebarCollapse').on('click', function() {
-  //     $('#sidebar, #content').toggleClass('active');
-  //   });
-  // });
 }

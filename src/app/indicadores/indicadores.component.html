@@ -1,6 +1,5 @@
 <div class="col-12 py-3 col-title">
     <h1 class="mr-5">
-
         Indicadores
     </h1>
 </div>
@@ -10,7 +9,7 @@
         <div>
             <div>
                 <div style="display: block">
-                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="options"
+                    <canvas baseChart [data]="pets" [labels]="petsLabels" [chartType]="doughnutChartType" [options]="optionsPets"
                         height="20vh" width="30vw">
                     </canvas>
                 </div>
@@ -22,7 +21,7 @@
         <div>
             <div>
                 <div style="display: block">
-                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="options"
+                    <canvas baseChart [data]="medicamentos" [labels]="medicamentosLabels" [chartType]="doughnutChartType" [options]="optionsMedicamentos"
                         height="20vh" width="30vw">
                     </canvas>
                 </div>
