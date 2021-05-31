@@ -1,32 +1,37 @@
-<div class="col-12 py-3 col-title">
-    <h1 class="mr-5">
-        Indicadores
-    </h1>
-</div>
+<section>
+    <div class="col-12 py-3 col-title">
+        <h1 class="mr-5">
+            Indicadores
+        </h1>
+    </div>
+</section>
 
-<div class="row mt-5 d-flex justify-content-center">
-    <div class="col-5 col-chart">
-        <div>
+<article>
+    <div class="row mt-5 d-flex justify-content-center">
+
+        <div class="col-5 col-chart shadow-lg p-3 mb-5 bg-white rounded">
             <div>
-                <div style="display: block">
-                    <canvas baseChart [data]="pets" [labels]="petsLabels" [chartType]="doughnutChartType" [options]="optionsPets"
-                        height="20vh" width="30vw">
-                    </canvas>
+                <div>
+                    <div style="display: block">
+                        <canvas baseChart [data]="pets" [labels]="petsLabels" [chartType]="doughnutChartType"
+                            [options]="optionsPets" height="20vh" width="30vw">
+                        </canvas>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-5 col-chart">
 
-        <div>
+        <div class="col-5 col-chart shadow-lg p-3 mb-5 bg-white rounded">
             <div>
-                <div style="display: block">
-                    <canvas baseChart [data]="medicamentos" [labels]="medicamentosLabels" [chartType]="doughnutChartType" [options]="optionsMedicamentos"
-                        height="20vh" width="30vw">
-                    </canvas>
+                <div>
+                    <div style="display: block">
+                        <canvas baseChart [data]="medicamentos" [labels]="medicamentosLabels"
+                            [chartType]="doughnutChartType" [options]="optionsMedicamentos" height="20vh" width="30vw">
+                        </canvas>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
+    </div>
+</article>

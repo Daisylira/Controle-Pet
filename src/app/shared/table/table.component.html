@@ -1,23 +1,27 @@
-<table class="table table-bordered mt-5">
-    <thead [ngClass]="theadColor">
-        <tr>
-            <th class="py-4 text-center" *ngFor="let item of listTitle">{{item.title}}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of listContent">
-            <td class="table-content">{{item?.nome}}</td>
-            <td class="table-content">{{item?.tipo}}</td>
-            <td class="table-content">{{item?.data}}</td>
-            <td class="table-content-action">
-                <button type="button" class="btn btn-action-edit mr-4">
-                    <fa-icon [icon]="faPen"></fa-icon>
-                </button>
-                <button type="button" class="btn btn-action-delete">
-                    <fa-icon [icon]="faTrashAlt"></fa-icon>
-                </button>
-            </td>
-        </tr>
+<section>
 
-    </tbody>
-</table>
+    <table class="table table-bordered mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+        <thead [ngClass]="theadColor">
+            <tr>
+                <th class="py-4 text-center" *ngFor="let item of listTitle" >{{item.title}}</th>
+            </tr>
+        </thead>
+        <tbody #item>
+            <tr *ngFor="let item of listContent | listFilter: searchText">
+                <td class="table-content">{{item?.nome}}</td>
+                <td class="table-content">{{item?.tipo}}</td>
+                <td class="table-content">{{item?.data}}</td>
+                <td class="table-content-action">
+                    <button type="button" class="btn btn-action-edit mr-4" (click)="openEdit(item)">
+                        <fa-icon [icon]="faPen"></fa-icon>
+                    </button>
+                    <button type="button" class="btn btn-action-delete" (click)="openModalDelete(item)">
+                        <fa-icon [icon]="faTrashAlt"></fa-icon>
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    
+</section>

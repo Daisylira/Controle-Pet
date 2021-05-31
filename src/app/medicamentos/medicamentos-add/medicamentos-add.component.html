@@ -1,0 +1,74 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Adicionar medicamento</h4>
+    <button type="button" class="close pull-right btn btn-light" aria-label="Close" (click)="bsModalRef.hide()">
+        <fa-icon [icon]=" faTimes"></fa-icon>
+        <span aria-hidden="true"></span>
+    </button>
+</div>
+
+<ng-container *ngIf="modaltext; else modalSuccess"> 
+<div class="modal-body p-5">
+
+    <form>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nome</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <br>
+
+        <div class="form-row row">
+            <div class="form-group col-6 p-0">
+                <label for="exampleInputtext1">Lote</label>
+                <input type="text" class="form-control" id="exampleInputtext1">
+            </div>
+
+
+            <div class="form-group col-6">
+                <label for="exampleInputtext1">Data de validade</label>
+                <input type="text" class="form-control" id="exampleInputtext1">
+            </div>
+        </div>
+        <br>
+        <div class="form-row row">
+            <div class="form-group col-6 p-0">
+                <label for="exampleInputtext1">Quantidade</label>
+                <input type="text" class="form-control" id="exampleInputtext1">
+            </div>
+
+            <div class="form-group col-6">
+                <label for="exampleInputtext1">Status</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Disponível</option>
+                    <option>Em processo de compra</option>
+                    <option>Em falta</option>
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="exampleInputtext1">Observações:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-cancelar" (click)="bsModalRef.hide()">Cancelar</button>
+
+    <button type="button" class="btn btn-salvar" (click)="modaltext = false">Salvar</button>
+</div>
+</ng-container>
+
+<ng-template #modalSuccess>
+
+    <div class="modal-body py-5">
+        
+        <h4>
+            Cadastro realizado com sucesso!
+        </h4>
+    </div>
+</ng-template>

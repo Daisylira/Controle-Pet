@@ -1,7 +1,26 @@
 <article>
-    <app-search [placeHolderContent]="placeHolderContent"></app-search>
+    <app-search [placeHolderContent]="placeHolderContent" [addPage]="'pets'"></app-search>
 </article>
 
+
+<!-- <div class="content" role="main">
+    <div class="card">
+      <div class="form-group">
+        <label for="search-text">Search Text</label>
+        <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
+          [(ngModel)]="searchText" placeholder="Enter text to search" 
+          autofocus>
+      </div>
+      
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let c of listPet | listFilter: searchText">
+          {{c.nome}}
+        </li>
+      </ul>
+    </div>
+  </div> -->
+
 <article>
-    <app-table [listTitle]="listTitle" [listContent]="listPet" [theadColor]="theadColor"></app-table>
+    <app-table [listTitle]="listTitle" [listContent]="listPet"
+     [theadColor]="theadColor" [text]="text" [editPage]="'pets'" ></app-table>
 </article>

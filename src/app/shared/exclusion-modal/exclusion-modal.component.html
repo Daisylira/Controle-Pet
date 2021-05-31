@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Excluir - {{text | titlecase}} {{item?.nome}} </h4>
+    <button type="button" class="close pull-right btn btn-light" aria-label="Close" (click)="bsModalRef.hide()">
+        <fa-icon [icon]=" faTimes"></fa-icon>
+        <span aria-hidden="true"></span>
+    </button>
+
+
+</div>
+
+<ng-container *ngIf="modaltext; else modalSuccess"> 
+<div class="modal-body p-5">
+
+    <h4>
+        Tem  certeza que deseja excluir o cadastro do {{text}} {{item?.nome}}?
+
+    </h4>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-cancelar" (click)="bsModalRef.hide()">Cancelar</button>
+
+    <button type="button" class="btn btn-salvar" (click)="modaltext = false">Salvar</button>
+
+</div>
+</ng-container>
+
+<ng-template #modalSuccess>
+    <div class="modal-body py-5">
+        
+        <h4>
+            Cadastro do {{text}} {{item?.nome}} excluído com sucesso!
+        </h4>
+    </div>
+</ng-template>

@@ -9,8 +9,8 @@ export class MedicamentosComponent implements OnInit {
 
   theadColor: string = "thead-color-grey";
   placeHolderContent: string = "Pesquise o medicamento aqui"
-
-
+  title: string;
+  text: string
   constructor() { }
 
   ngOnInit(): void {
@@ -28,39 +28,47 @@ export class MedicamentosComponent implements OnInit {
     {
       nome: "Vacina Raiva",
       tipo: "18",
-      data: "10/08/2022"
-
+      data: "10/08/2022",
+      lote: "N24550",
+      quantidade: 10,
+      obs: "2 Doses",
     },
-
     {
       nome: "FEVL",
       tipo: "09",
-      data: "10/08/2025"
+      data: "10/08/2025",
+      lote: "N24550",
+      quantidade: 24,
+      obs: "",
 
     },
-
     {
       nome: "Antiflamatório",
       tipo: "05",
-      data: "03/05/2023"
+      data: "03/05/2023",
+      lote: "L24550",
+      quantidade: 12,
+      obs: "A cada 12hrs",
 
     },
-
     {
-      nome: "Vacina Raiva",
+      nome: "Vacina",
       tipo: "25",
-      data: "10/08/2024"
+      data: "10/08/2024",
+      lote: "A4550",
+      quantidade: 5,
+      obs: "",
 
     },
-
     {
       nome: "Vermífugo",
       tipo: "20",
-      data: "10/08/2022"
+      data: "10/08/2022",
+      lote: "B24550",
+      quantidade: 10,
+      obs: "2 Doses",
 
     },
-
-
   ]
 
 }
