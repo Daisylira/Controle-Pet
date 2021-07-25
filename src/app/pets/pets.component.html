@@ -1,26 +1,48 @@
-<article>
-    <app-search [placeHolderContent]="placeHolderContent" [addPage]="'pets'"></app-search>
-</article>
+<section>
 
+  <article>
+    <div class="row mt-3">
+      <div class="col-6">
+        <app-search [addPage]="'pets'"></app-search>
 
-<!-- <div class="content" role="main">
-    <div class="card">
-      <div class="form-group">
-        <label for="search-text">Search Text</label>
-        <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
-          [(ngModel)]="searchText" placeholder="Enter text to search" 
-          autofocus>
       </div>
-      
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let c of listPet | listFilter: searchText">
-          {{c.nome}}
-        </li>
-      </ul>
+      <div class="col-5">
+        <input class="form-control" type="text" [placeholder]="placeHolderContent" id="search-text"
+          aria-describedby="search-text" [(ngModel)]="searchText.nome" autofocus>
+      </div>
+      <div class="col-1 d-flex flex-wrap align-content-center">
+        <fa-icon [icon]="faSearch" class="fa-lg"></fa-icon>
+      </div>
     </div>
-  </div> -->
 
-<article>
-    <app-table [listTitle]="listTitle" [listContent]="listPet"
-     [theadColor]="theadColor" [text]="text" [editPage]="'pets'" ></app-table>
-</article>
+  </article>
+
+
+
+  <article>
+    <table class="table table-bordered mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+      <thead [ngClass]="theadColor">
+        <tr>
+          <th class="py-3 text-center" *ngFor="let item of listTitle">{{item.title}}</th>
+        </tr>
+      </thead>
+      <tbody #item>
+        <tr *ngFor="let item of animais?.content | filterBy: searchText">
+          <td class="table-content">{{item?.nome | titlecase}}</td>
+          <td class="table-content">{{item?.tipo | titlecase}}</td>
+          <td class="table-content">{{item?.dataCadastro | date: 'dd/MM/yyyy' }}</td>
+          <td class="table-content-action">
+            <button type="button" class="btn btn-action-edit mr-4" (click)="openEdit(item)">
+              <fa-icon [icon]="faPen"></fa-icon>
+            </button>
+            <button type="button" class="btn btn-action-delete" (click)="openModalDelete(item)">
+              <fa-icon [icon]="faTrashAlt"></fa-icon>
+            </button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </article>
+
+</section>

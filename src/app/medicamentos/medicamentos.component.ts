@@ -71,4 +71,25 @@ export class MedicamentosComponent implements OnInit {
     },
   ]
 
+  // [
+  //   {
+  //     "id": "60fd6fc6c5a6c27708418590",
+  //     "nome": "Medicamento PNQJPACOEM",
+  //     "lote": "5801 - WHXCK",
+  //     "dataValidade": "2021-07-25T14:06:04.292+00:00",
+  //     "quantidade": -44,
+  //     "disponibilidade": "INDISPONIVEL",
+  //     "observacoes": "DISPONIVEL"
+  //   },
+  //   {
+  //     "id": "60fd9bf512d9eb25fd3f9a8f",
+  //     "nome": "Medicamento MMRXYVNRYZ",
+  //     "lote": "8735 - FCPVB",
+  //     "dataValidade": "2021-07-25T17:14:35.950+00:00",
+  //     "quantidade": 49,
+  //     "disponibilidade": "DISPONIVEL",
+  //     "observacoes": "INDISPONIVEL"
+  //   }
+  // ]
+
 }
