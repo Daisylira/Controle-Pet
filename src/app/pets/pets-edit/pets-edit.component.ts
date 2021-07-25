@@ -44,23 +44,23 @@ export class PetsEditComponent implements OnInit {
   }
 
 
-  tratamento(){
+ // tratamento(){
     // this.optionsTipoPet.filter(val=> val.selected === true).map(data =>data.label)
     // const initialValue
     // this.optionsTipoPet.find(opt => opt === initialValue)
 
-    this.optionsTipoPet.forEach(element => {
-      if (element.value === this.item) {
-        element.selected = true
-      }
+  //   this.optionsTipoPet.forEach(element => {
+  //     if (element.value === this.item) {
+  //       element.selected = true
+  //     }
 
-    });
+  //   });
 
-  }
+  // }
 
-  putAnimal(){
+  // putAnimal(){
 
-  }
+  // }
 
 
 
@@ -79,7 +79,7 @@ export class PetsEditComponent implements OnInit {
 
   optionsTipoPet = [
    // {id: 1, value: null, label: "Selecione uma opção"},
-    {id: 2, value: "GATO", label: "Gato", selected: },
+    {id: 2, value: "GATO", label: "Gato" },
     {id: 3, value: "CACHORRO", label: "Cachorro"},
     {id: 4, value: "PASSARO", label: "Passáro"},
     {id: 5, value: "PEIXE", label: "Peixe"}
