@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -16,6 +16,7 @@ export class MedicamentosAddComponent implements OnInit {
   item: any;
   mgs: string;
   submitform: boolean;
+  @Output() added: EventEmitter <boolean> = new EventEmitter();
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -47,8 +48,9 @@ export class MedicamentosAddComponent implements OnInit {
     this.changeForm();
     this.appService.postAnimais(this.addMedicamentoForm.value)
       .subscribe(res => {
-        console.log(res)
-        this.mgs = "O cadastro foi realizado com sucesso!"
+        this.mgs = "O cadastro foi realizado com sucesso!";
+        this.added.emit(true)
+
       },
         () => {
           this.mgs = "Erro ao cadastrar, por favor tente novamente."

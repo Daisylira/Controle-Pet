@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +22,7 @@ export class ExclusionModalComponent implements OnInit {
   mgs: string;
   submitform: boolean;
   url: string;
+  @Output() deleted: EventEmitter <boolean> = new EventEmitter();
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -37,7 +38,8 @@ export class ExclusionModalComponent implements OnInit {
     this.appService.delete(this.url, this.item?.id)
       .subscribe(res => {
         let nome = new TitleCasePipe().transform(this.item?.nome)
-        this.mgs = `A exclusão do ${nome} foi realizada com sucesso!`
+        this.mgs = `A exclusão do ${nome} foi realizada com sucesso!`;
+        this.deleted.emit(true)
       },
         () => {
           this.mgs = "Erro ao alterar o cadastro, por favor tente novamente."

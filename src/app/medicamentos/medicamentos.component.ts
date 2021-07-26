@@ -3,6 +3,7 @@ import { faPen, faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AppServiceService } from '../app-service.service';
 import { ExclusionModalComponent } from '../shared/exclusion-modal/exclusion-modal.component';
+import { MedicamentosAddComponent } from './medicamentos-add/medicamentos-add.component';
 import { MedicamentosEditModalComponent } from './medicamentos-edit-modal/medicamentos-edit-modal.component';
 
 @Component({
@@ -51,6 +52,11 @@ export class MedicamentosComponent implements OnInit {
 
     this.bsModalRef = this.modalService.show(ExclusionModalComponent, { initialState, class: 'modal-lg' });
     this.bsModalRef.content.closeBtnName = 'Close';
+    this.bsModalRef.content.added.subscribe((res: boolean) => {
+      if (res) {
+        this.getMedicamentos()
+      }
+    });
   }
 
   public openEdit(item: any): void {
@@ -62,6 +68,25 @@ export class MedicamentosComponent implements OnInit {
     };
     this.bsModalRef = this.modalService.show(MedicamentosEditModalComponent, { initialState, class: 'modal-lg' });
     this.bsModalRef.content.closeBtnName = 'Close';
+    this.bsModalRef.content.added.subscribe((res: boolean) => {
+      if (res) {
+        this.getMedicamentos()
+      }
+    });
+  }
+
+  public openAdd(): void {
+
+    this.bsModalRef = this.modalService.show(MedicamentosAddComponent, { class: 'modal-lg' });
+
+    this.bsModalRef.content.closeBtnName = 'Close';
+    this.bsModalRef.content.added.subscribe((res: boolean) => {
+      if (res) {
+        this.getMedicamentos()
+      }
+    });
+
+
   }
 
   listTitle = [

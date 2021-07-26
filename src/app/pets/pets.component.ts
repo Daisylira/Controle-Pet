@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { faCoffee, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { AppServiceService } from '../app-service.service';
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { PetsEditComponent } from './pets-edit/pets-edit.component';
 import { ExclusionModalComponent } from '../shared/exclusion-modal/exclusion-modal.component';
+import { PetsAddComponent } from './pets-add/pets-add.component';
 
 @Component({
   selector: 'app-pets',
@@ -25,7 +26,8 @@ export class PetsComponent implements OnInit {
   bsModalRef: BsModalRef;
   searchText: any = { nome: '' };
   loading: boolean = true;
-  
+  @Output() haspet: EventEmitter<boolean> = new EventEmitter();
+
   constructor(
     private appService: AppServiceService,
     private modalService: BsModalService
@@ -53,6 +55,11 @@ export class PetsComponent implements OnInit {
 
     this.bsModalRef = this.modalService.show(ExclusionModalComponent, { initialState, class: 'modal-lg' });
     this.bsModalRef.content.closeBtnName = 'Close';
+    this.bsModalRef.content.deleted.subscribe((res: boolean) => {
+      if (res) {
+        this.getAnimais()
+      }
+    });
   }
 
   openEdit(item: any) {
@@ -64,7 +71,28 @@ export class PetsComponent implements OnInit {
     };
     this.bsModalRef = this.modalService.show(PetsEditComponent, { initialState, class: 'modal-lg' });
     this.bsModalRef.content.closeBtnName = 'Close';
+    this.bsModalRef.content.edited.subscribe((res: boolean) => {
+      if (res) {
+        this.getAnimais()
+      }
+    });
+
   }
+
+  public openAdd(): void {
+
+    this.bsModalRef = this.modalService.show(PetsAddComponent, { class: 'modal-lg' });
+
+    this.bsModalRef.content.closeBtnName = 'Close';
+    this.bsModalRef.content.added.subscribe((res: boolean) => {
+      if (res) {
+        this.getAnimais()
+      }
+    });
+
+
+  }
+
 
   listTitle = [
     { title: "Nome" },

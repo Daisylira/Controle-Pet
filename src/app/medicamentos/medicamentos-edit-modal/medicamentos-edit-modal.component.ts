@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -19,6 +19,7 @@ export class MedicamentosEditModalComponent implements OnInit {
   editMedicamentoForm: FormGroup;
   mgs: string;
   submitform: boolean;
+  @Output() edited: EventEmitter <boolean> = new EventEmitter();
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -50,7 +51,10 @@ export class MedicamentosEditModalComponent implements OnInit {
     this.appService.putMedicamentos(this.item?.id, this.editMedicamentoForm.value)
       .subscribe(res => {
         console.log(res)
-        this.mgs = "O cadastro foi alterado com sucesso!"
+        this.mgs = "O cadastro foi alterado com sucesso!";
+        this.edited.emit(true)
+
+
       },
         () => {
           this.mgs = "Erro ao alterar o cadastro, por favor tente novamente."

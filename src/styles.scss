@@ -40,3 +40,53 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+table>tbody {
+  background-color: white;
+  vertical-align: inherit;
+}
+
+.thead-color-orange{
+  vertical-align: bottom;
+  background-color: #D36C53;
+  color: white;
+}
+
+.thead-color-grey{
+  vertical-align: bottom;
+  background-color: #6f767b;
+  color: white;
+}
+
+.table-content {
+  vertical-align: middle;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  text-align: center;
+  &-action{
+      width: 250px;
+      text-align: center;
+  }
+}
+
+.btn-action{
+
+  color: white;
+  &-edit{
+      background-color: #36b5ad;
+      border-radius: 100% ;
+      width: 40px;
+      margin-right: 30px;
+      margin-left: -3px;
+      color: white;
+      
+  }
+
+  &-delete{
+      background-color: #d2838a;
+      border-radius: 100% ;
+      width: 40px;
+      margin-left: -3px;
+      color: white;
+  }
+}

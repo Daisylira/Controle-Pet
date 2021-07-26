@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -16,6 +16,7 @@ export class PetsAddComponent implements OnInit {
   addPetForm: FormGroup;
   mgs: string;
   submitform: boolean;
+  @Output() added: EventEmitter <boolean> = new EventEmitter();
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -42,14 +43,14 @@ export class PetsAddComponent implements OnInit {
     )
   }
 
-  public sendEdit(): void {
+  public sendAdd(): void {
     this.submitform = true;
     this.mgs = "Aguarde enquanto o cadastro está sendo realizado."
     this.changeForm();
     this.appService.postAnimais(this.addPetForm.value)
       .subscribe(res => {
-        console.log(res)
         this.mgs = "O cadastro foi realizado com sucesso!"
+        this.added.emit(true)
       },
         () => {
           this.mgs = "Erro ao cadastrar, por favor tente novamente."
