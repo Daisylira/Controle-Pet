@@ -4,6 +4,7 @@ import { MultiDataSet, Label, BaseChartDirective } from 'ng2-charts';
 import { AppServiceService } from '../app-service.service';
 import { PetDisponibilidade, PetTipo } from '../pets/utils/pet-tipo.enum';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-indicadores',
@@ -32,7 +33,7 @@ export class IndicadoresComponent implements OnInit {
   colorDisponibilidade = {
     domain: ['#264653', '#e76f51']
   };
-
+  faAngleRight = faAngleRight
   constructor(
     private appService: AppServiceService,
   ) {  }

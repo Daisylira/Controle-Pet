@@ -1,0 +1,42 @@
+html {
+    height: 100vh;
+  }
+  body {
+    min-height: 100vh;
+  }
+
+.menu {
+    border: 1px solid grey;
+    background-color: #FAFAFA !important;
+    height: 1208px;
+    
+    &-title{
+        color: #F5D418;
+        font-size: 35px;
+        letter-spacing: 5px;
+        line-height: 56px;
+        text-align: center;
+    }
+    &-option{
+        background-color: #FAFAFA !important;
+        color: #47525E;
+        font-size: 26px;
+        margin-left: 41px;
+        text-align: left;
+
+    }
+}
+
+.icon {
+    display: none;
+}
+.active { 
+    display: flex;
+    width: 100%;
+    .icon {
+        padding-left: 10px;;
+        display: inline;
+        align-self: flex-end;
+    }
+
+}
