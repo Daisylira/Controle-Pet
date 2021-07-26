@@ -40,6 +40,9 @@
               </button>
             </td>
           </tr>
+
+          <div *ngIf="(animais?.content | filterBy: searchText).length === 0" class="ml-3 p-3">Nenhum animal encontrado</div>
+
         </ng-template>
       </tbody>
       <tbody *ngIf="loading; else content">

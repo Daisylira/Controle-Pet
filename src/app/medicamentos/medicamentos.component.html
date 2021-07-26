@@ -42,6 +42,9 @@
             </td>
           </tr>
 
+          <div *ngIf="(medicamentos | filterBy: searchText).length === 0" class="ml-3 p-3">Nenhum medicamento encontrado</div>
+
+
         </ng-template>
       </tbody>
 
