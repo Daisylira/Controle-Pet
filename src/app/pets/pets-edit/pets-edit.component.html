@@ -6,100 +6,94 @@
     </button>
 </div>
 
-<ng-container *ngIf="modaltext; else modalSuccess">
+<ng-container *ngIf="!submitform">
 
-<div class="modal-body p-5">
-    <form [formGroup]="editPetForm">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Nome</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            formControlName="nome">
-        </div>
-        <br>
-
-        <div class="form-row row">
-
-            <div class="form-group col-6 p-0">
-                <label for="exampleInputtext1">Tipo do animal</label>
-                <select class="form-control" formControlName="tipo" [(ngModel)]="item.tipo">
-                    <ng-container *ngFor="let i of optionsTipoPet">
-                        <option [value]="i.label">{{item.label}}</option>
-                    </ng-container>
-                </select>
+    <div class="modal-body p-5">
+        <form [formGroup]="editPetForm">
+            <div class="form-group">
+                <label for="Nome">Nome</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp"
+                    formControlName="nome">
             </div>
+            <br>
 
-            <div class="form-group col-6">
-                <label for="exampleInputtext1">Raça</label>
-                <input type="text" class="form-control" id="exampleInputtext1"
-                formControlName="raca">
+            <div class="form-row row">
+
+                <div class="form-group col-6 p-0">
+                    <label for="Tipo do animal">Tipo do animal</label>
+                    <select class="form-control" formControlName="tipo">
+                        <option [ngValue]="'GATO'">Gato</option>
+                        <option [ngValue]="'CACHORRO'">Cachorro</option>
+                        <option [ngValue]="'PASSARO'">Passáro</option>
+                        <option [ngValue]="'PEIXE'">Peixe</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="Raça">Raça</label>
+                    <input type="text" class="form-control" formControlName="raca">
+                </div>
+
             </div>
+            <br>
 
-        </div>
-        <br>
+            <div class="form-row row">
+                <div class="form-group col-6 p-0">
+                    <label for="Idade aproximada">Idade aproximada</label>
+                    <input type="number" class="form-control" formControlName="idade">
+                </div>
 
-        <div class="form-row row">
-            <div class="form-group col-6 p-0">
-                <label for="exampleInputtext1">Idade aproximada</label>
-                <input type="text" class="form-control" id="exampleInputtext1"
-                formControlName="idade">
-            </div>
-
-            <div class="form-group col-6">
-                <label for="exampleInputtext1">Status</label>
-                <select class="form-control" name ="tipo" formControlName="tipo">
-                    <option [ngValue]="'EM_TRATAMENTO'">Em tratamento</option>
+                <div class="form-group col-6">
+                    <label for="Status">Status</label>
+                    <select class="form-control" name="tipo" formControlName="disponibilidade">
+                        <option [ngValue]="'INDISPONIVEL'">Indisponível</option>
                         <option [ngValue]="'DISPONIVEL'">Disponível</option>
-                    <!-- <ng-container *ngFor="let i of optionsStatus">
-                        <option [ngValue]="i.value">{{item.label}}</option>
-                    </ng-container> -->
-                </select>
+                        <!-- <option [ngValue]="'EM_TRATAMENTO'">Em tratamento</option>
+                        <option [ngValue]="'RESERVADO'">Reservado</option>
+                        <option [ngValue]="'DOADO'">Doado</option> -->
+                    </select>
+                </div>
             </div>
-        </div>
-        <br>
+            <br>
 
-        <div class="form-row row">
+            <div class="form-row row">
 
-            <div class="form-group col-6 p-0">
-                <label for="exampleInputtext1">Data de entrada</label>
-                <input type="date" class="form-control" id="exampleInputtext1"
-                formControlName="dataCadastro">
+                <div class="form-group col-6 p-0">
+                    <label for="Data de entrada">Data de entrada</label>
+                    <input type="date" class="form-control" formControlName="dataCadastro" [ngModel]="item.dataCadastro | date: 'dd/MM/yyyy'">
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="Porte">Porte</label>
+                    <select class="form-control" formControlName="porte">
+                        <option [ngValue]="'PEQUENO'">Pequeno</option>
+                        <option [ngValue]="'MEDIO'">Médio</option>
+                        <option [ngValue]="'GRANDE'">Grande</option>
+                    </select>
+                </div>
             </div>
+            <br>
 
-            <div class="form-group col-6">
-                <label for="exampleInputtext1">Porte</label>
-                <select class="form-control" formControlName="porte">
-                    <ng-container *ngFor="let i of optionsPorte">
-                        <option [ngValue]="i.value">{{item.label}}</option>
-                    </ng-container>
-                </select>
+            <div class="form-group">
+                <label for="Observações">Observações:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    formControlName="observacoes"></textarea>
             </div>
-        </div>
-        <br>
+        </form>
 
-        <div class="form-group">
-            <label for="exampleInputtext1">Observações:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-            formControlName="observacoes"></textarea>
-        </div>
+    </div>
+    
 
-        {{editPetForm?.value | json}}
-    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-cancelar" (click)="bsModalRef.hide()">Cancelar</button>
 
-</div>
+        <button type="button" class="btn btn-salvar" (click)="sendEdit()" [disabled]="!editPetForm.valid">Salvar</button>
+    </div>
 
-<div class="modal-footer">
-    <button type="button" class="btn btn-cancelar" (click)="bsModalRef.hide()">Cancelar</button>
-
-    <button type="button" class="btn btn-salvar" (click)="modaltext = false">Salvar</button>
-</div>
 </ng-container>
 
-<ng-template #modalSuccess>
-
-    <div class="modal-body py-5">
-        
-        <h4>
-            Cadastro atualizado com sucesso!
-        </h4>
+<ng-container *ngIf="submitform">
+    <div class="modal-body py-4 text-center">
+        <h5>{{mgs}}</h5>
     </div>
-</ng-template>
+</ng-container>

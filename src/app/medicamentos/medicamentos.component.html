@@ -1,7 +1,45 @@
-<article>
-    <app-search [addPage]="'medicamentos'"></app-search>
-</article>
+<section>
 
-<article>
-    <app-table [listTitle]="listTitle" [listContent]="listMedicamentos" [theadColor]="theadColor" [editPage]="'medicamentos'"></app-table>
-</article>
+    <article>
+      <div class="row mt-3">
+        <div class="col-6">
+          <app-search [addPage]="'medicamentos'"></app-search>
+        </div>
+        <div class="col-5">
+          <input class="form-control" type="text" [placeholder]="placeHolderContent" id="search-text"
+            aria-describedby="search-text" [(ngModel)]="searchText.nome" autofocus>
+        </div>
+        <div class="col-1 d-flex flex-wrap align-content-center">
+          <fa-icon [icon]="faSearch" class="fa-lg"></fa-icon>
+        </div>
+      </div>
+    </article>
+  
+    <article>
+      <table class="table table-bordered mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+        <thead [ngClass]="theadColor">
+          <tr>
+            <th class="py-3 text-center" *ngFor="let item of listTitle">{{item.title}}</th>
+          </tr>
+        </thead>
+        <tbody #item>
+          <tr *ngFor="let item of medicamentos | filterBy: searchText">
+            <td class="table-content">{{item?.nome | titlecase}}</td>
+            <td class="table-content">{{item?.quantidade }}</td>
+            <td class="table-content">{{item?.dataValidade | date: 'dd/MM/yyyy' }}</td>
+            <td class="table-content-action">
+              <button type="button" class="btn btn-action-edit mr-4" (click)="openEdit(item)">
+                <fa-icon [icon]="faPen"></fa-icon>
+              </button>
+              <button type="button" class="btn btn-action-delete" (click)="openModalDelete(item)">
+                <fa-icon [icon]="faTrashAlt"></fa-icon>
+              </button>
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+    </article>
+  
+  </section>
+  

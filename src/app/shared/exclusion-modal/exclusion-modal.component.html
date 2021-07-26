@@ -4,31 +4,21 @@
         <fa-icon [icon]=" faTimes"></fa-icon>
         <span aria-hidden="true"></span>
     </button>
-
-
 </div>
 
-<ng-container *ngIf="modaltext; else modalSuccess"> 
-<div class="modal-body p-5">
+<ng-container *ngIf="!submitform">
+    <div class="modal-body p-4">
+        <h5>Tem certeza que deseja excluir o cadastro do {{text}} {{item?.nome | titlecase}}?</h5>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-cancelar" (click)="bsModalRef.hide()">Não</button>
 
-    <h4>
-        Tem  certeza que deseja excluir o cadastro do {{text}} {{item?.nome}}?
-
-    </h4>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-cancelar" (click)="bsModalRef.hide()">Cancelar</button>
-
-    <button type="button" class="btn btn-salvar" (click)="modaltext = false">Salvar</button>
-
-</div>
+        <button type="button" class="btn btn-salvar" (click)="sendDelete()">Sim</button>
+    </div>
 </ng-container>
 
-<ng-template #modalSuccess>
-    <div class="modal-body py-5">
-        
-        <h4>
-            Cadastro do {{text}} {{item?.nome}} excluído com sucesso!
-        </h4>
+<ng-container *ngIf="submitform">
+    <div class="modal-body text-center py-4">
+        <h5>{{mgs}}</h5>
     </div>
-</ng-template>
+</ng-container>

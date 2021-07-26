@@ -6,84 +6,95 @@
     </button>
 </div>
 
-<ng-container *ngIf="modaltext; else modalSuccess">
+<ng-container *ngIf="!submitform">
 
 
-<div class="modal-body p-5">
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Nome</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <br>
+    <div class="modal-body p-5">
+        <form [formGroup]="addPetForm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nome</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    formControlName="nome">
+            </div>
+            <br>
 
-        <div class="form-row row">
+            <div class="form-row row">
 
-            <div class="form-group col-6 p-0">
-                <label for="exampleInputtext1">Tipo do animal</label>
-                <input type="text" class="form-control" id="exampleInputtext1">
+                <div class="form-group col-6 p-0">
+                    <label for="Tipo do animal">Tipo do animal</label>
+                    <select class="form-control" formControlName="tipo">
+                        <option [ngValue]="null">Selecione uma opção</option>
+                        <option [ngValue]="'GATO'">Gato</option>
+                        <option [ngValue]="'CACHORRO'">Cachorro</option>
+                        <option [ngValue]="'PASSARO'">Passáro</option>
+                        <option [ngValue]="'PEIXE'">Peixe</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="Raça">Raça</label>
+                    <input type="text" class="form-control" formControlName="raca">
+                </div>
+            </div>
+            <br>
+
+            <div class="form-row row">
+                <div class="form-group col-6 p-0">
+                    <label for="Idade aproximada">Idade aproximada</label>
+                    <input type="number" class="form-control" formControlName="idade">
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="Status">Status</label>
+                    <select class="form-control" name="tipo" formControlName="disponibilidade">
+                        <option [ngValue]="null">Selecione uma opção</option>
+                        <option [ngValue]="'INDISPONIVEL'">Indisponível</option>
+                        <option [ngValue]="'DISPONIVEL'">Disponível</option>
+                        <!-- <option [ngValue]="'RESERVADO'">Reservado</option>
+                        <option [ngValue]="'DOADO'">Doado</option> -->
+                    </select>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-row row">
+
+                <div class="form-group col-6 p-0">
+                    <label for="Data de entrada">Data de entrada</label>
+                    <input type="date" class="form-control" formControlName="dataCadastro">
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="Porte">Porte</label>
+                    <select class="form-control" formControlName="porte">
+                        <option [ngValue]="null">Selecione uma opção</option>
+                        <option [ngValue]="'PEQUENO'">Pequeno</option>
+                        <option [ngValue]="'MEDIO'">Médio</option>
+                        <option [ngValue]="'GRANDE'">Grande</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="Observações">Observações:</label>
+                <textarea class="form-control" rows="3"
+                    formControlName="observacoes"></textarea>
             </div>
 
-            <div class="form-group col-6">
-                <label for="exampleInputtext1">Raça</label>
-                <input type="text" class="form-control" id="exampleInputtext1">
-            </div>
-        </div>
-        <br>
+        </form>
 
-        <div class="form-row row">
-            <div class="form-group col-6 p-0">
-                <label for="exampleInputtext1">Idade aproximada</label>
-                <input type="text" class="form-control" id="exampleInputtext1">
-            </div>
+    </div>
 
-            <div class="form-group col-6">
-                <label for="exampleInputtext1">Status</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Disponível</option>
-                    <option>Em tratamento</option>
-                    <option>Reservado</option>
-                    <option>Doado</option>
-                </select>
-            </div>
-        </div>
-        <br>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-cancelar" (click)="bsModalRef.hide()">Cancelar</button>
 
-        <div class="form-row row">
-
-            <div class="form-group col-6 p-0">
-                <label for="exampleInputtext1">Data de entrada</label>
-                <input type="text" class="form-control" id="exampleInputtext1">
-            </div>
-
-            <div class="form-group col-6">
-                <label for="exampleInputtext1">Porte</label>
-                <input type="text" class="form-control" id="exampleInputtext1">
-            </div>
-        </div>
-        <br>
-
-        <div class="form-group">
-            <label for="exampleInputtext1">Observações:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-    </form>
-
-</div>
-
-<div class="modal-footer">
-    <button type="button" class="btn btn-cancelar" (click)="bsModalRef.hide()">Cancelar</button>
-
-    <button type="button" class="btn btn-salvar" (click)="modaltext = false">Salvar</button>
-</div>
+        <button type="button" class="btn btn-salvar" (click)="sendEdit()" [disabled]="!addPetForm.valid">Salvar</button>
+    </div>
 </ng-container>
 
-<ng-template #modalSuccess>
-
-    <div class="modal-body py-5">
-        
-        <h4>
-            Cadastro realizado com sucesso!
-        </h4>
+<ng-container *ngIf="submitform">
+    <div class="modal-body py-4 text-center">
+        <h4>{{mgs}}</h4>
     </div>
-</ng-template>
+</ng-container>
