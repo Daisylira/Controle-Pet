@@ -9,28 +9,24 @@
 <article>
     <div class="row mt-5 d-flex justify-content-center">
 
-        <div class="col-5 col-chart shadow-lg p-3 mb-5 bg-white rounded">
-            <div>
-                <div>
-                    <div style="display: block">
-                        <canvas baseChart [data]="pets" [labels]="petsLabels" [chartType]="doughnutChartType"
-                            [options]="optionsPets" height="20vh" width="30vw">
-                        </canvas>
-                    </div>
-                </div>
-            </div>
+        <div class="col-5 col-chart shadow-lg bg-white rounded">
+            <h4 class="text-center">Tipo de Pets</h4>
+
+            <ngx-charts-pie-chart [view]="view" [scheme]="colorTipoAnimal" [results]="tipoAnimal" 
+                [legend]="showLegend" [legendTitle]="'Animais'" [legendPosition]="'below'" [labels]="false"
+                [doughnut]="true" [arcWidth]="0.44">
+            </ngx-charts-pie-chart>
+
+ 
         </div>
 
         <div class="col-5 col-chart shadow-lg p-3 mb-5 bg-white rounded">
-            <div>
-                <div>
-                    <div style="display: block">
-                        <canvas baseChart [data]="medicamentos" [labels]="medicamentosLabels"
-                            [chartType]="doughnutChartType" [options]="optionsMedicamentos" height="20vh" width="30vw">
-                        </canvas>
-                    </div>
-                </div>
-            </div>
+            <h4 class="text-center">Disponibilidade dos Pets</h4>
+
+            <ngx-charts-pie-chart [view]="view" [scheme]="colorDisponibilidade" [results]="disponibilidade" 
+            [legend]="showLegend" [legendTitle]="'Disponibilidade'" [legendPosition]="'below'" [labels]="false"
+            [doughnut]="true" [arcWidth]="0.44">
+        </ngx-charts-pie-chart>
         </div>
 
     </div>

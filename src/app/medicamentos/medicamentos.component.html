@@ -1,28 +1,31 @@
 <section>
 
-    <article>
-      <div class="row mt-3">
-        <div class="col-6">
-          <app-search [addPage]="'medicamentos'"></app-search>
-        </div>
-        <div class="col-5">
-          <input class="form-control" type="text" [placeholder]="placeHolderContent" id="search-text"
-            aria-describedby="search-text" [(ngModel)]="searchText.nome" autofocus>
-        </div>
-        <div class="col-1 d-flex flex-wrap align-content-center">
-          <fa-icon [icon]="faSearch" class="fa-lg"></fa-icon>
-        </div>
+  <article>
+    <div class="row mt-3">
+      <div class="col-6">
+        <app-search [addPage]="'medicamentos'"></app-search>
       </div>
-    </article>
-  
-    <article>
-      <table class="table table-bordered mt-5 shadow-lg p-3 mb-5 bg-white rounded">
-        <thead [ngClass]="theadColor">
-          <tr>
-            <th class="py-3 text-center" *ngFor="let item of listTitle">{{item.title}}</th>
-          </tr>
-        </thead>
-        <tbody #item>
+      <div class="col-5">
+        <input class="form-control" type="text" [placeholder]="placeHolderContent" id="search-text"
+          aria-describedby="search-text" [(ngModel)]="searchText.nome" autofocus>
+      </div>
+      <div class="col-1 d-flex flex-wrap align-content-center">
+        <fa-icon [icon]="faSearch" class="fa-lg"></fa-icon>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <table class="table table-bordered mt-5 shadow-lg p-3 mb-5 bg-white rounded">
+      <thead [ngClass]="theadColor">
+        <tr>
+          <th class="py-3 text-center" *ngFor="let item of listTitle">{{item.title}}</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <ng-template #content>
+
           <tr *ngFor="let item of medicamentos | filterBy: searchText">
             <td class="table-content">{{item?.nome | titlecase}}</td>
             <td class="table-content">{{item?.quantidade }}</td>
@@ -36,10 +39,478 @@
               </button>
             </td>
           </tr>
-  
-        </tbody>
-      </table>
-    </article>
-  
-  </section>
-  
+
+        </ng-template>
+      </tbody>
+
+      <tbody *ngIf="loading; else content">
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+
+
+          <td class="py-3">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar progress-bar-animated" style="width: 0%" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+
+</section>

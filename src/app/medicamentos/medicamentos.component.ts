@@ -22,6 +22,7 @@ export class MedicamentosComponent implements OnInit {
   faSearch = faSearch
   bsModalRef: BsModalRef;
   searchText: any = { nome: '' };
+  loading: boolean = true;
 
   constructor(
     private appService: AppServiceService,
@@ -29,12 +30,13 @@ export class MedicamentosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAnimais()
+    this.getMedicamentos()
   }
 
-  private getAnimais(): void {
+  private getMedicamentos(): void {
     this.appService.getMedicamentos().subscribe((res: any) => {
       this.medicamentos = res;
+      this.loading = false
     })
   }
 

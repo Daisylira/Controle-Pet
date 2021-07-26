@@ -24,7 +24,8 @@ export class PetsComponent implements OnInit {
   faSearch = faSearch
   bsModalRef: BsModalRef;
   searchText: any = { nome: '' };
-
+  loading: boolean = true;
+  
   constructor(
     private appService: AppServiceService,
     private modalService: BsModalService
@@ -37,6 +38,7 @@ export class PetsComponent implements OnInit {
   private getAnimais() {
     this.appService.getAnimais().subscribe((res: any) => {
       this.animais = res;
+      this.loading = false
     })
   }
 

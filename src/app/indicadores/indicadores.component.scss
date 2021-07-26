@@ -13,3 +13,21 @@
     padding-bottom: 30px;
     margin: 30px;
 }
+
+.chart-legend .legend-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  margin-left: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 41px;
+  line-height: 16px;
+}
+
+.chart-legend .legend-label-text {
+  font-size: 20px;
+  line-height: 16px;
+  vertical-align: top;
+  width: calc(100% - 20px);
+}

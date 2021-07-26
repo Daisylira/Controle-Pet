@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterPipeModule } from 'ngx-filter-pipe';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 // Components
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -48,7 +51,9 @@ import { MedicamentosAddComponent } from './medicamentos/medicamentos-add/medica
     HttpClientModule,
     FilterPipeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
 
   providers: [],

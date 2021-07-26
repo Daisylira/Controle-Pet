@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartType } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
+import { MultiDataSet, Label, BaseChartDirective } from 'ng2-charts';
+import { AppServiceService } from '../app-service.service';
+import { PetDisponibilidade, PetTipo } from '../pets/utils/pet-tipo.enum';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-indicadores',
@@ -8,59 +11,102 @@ import { MultiDataSet, Label } from 'ng2-charts';
   styleUrls: ['./indicadores.component.scss']
 })
 export class IndicadoresComponent implements OnInit {
-  // Doughnut
-  public petsLabels: Label[] = ['Em tratamento', 'Doado', 'Disponíveis'];
-  public pets: MultiDataSet = [
-    [3, 2, 5],
-  ];
-  public medicamentosLabels: Label[] = ['Cachorro', 'Gato'];
-  public medicamentos: MultiDataSet = [
-    [7, 3],
-  ];
 
-  public doughnutChartType: ChartType = 'doughnut';
+  animais: any
+  disponibilidade: any;
 
-   optionsPets: any = {
-    legend: {
-      position: 'bottom',
-      labels: {
-        fontSize: 20
-      },
+  tipoAnimal: any[];
+  view: any[] = [600, 500];
 
-    },
-    title: {
-      text: 'Status dos Pets',
-      display: true,
-      fontSize: 40,
-    }
-  }
+  // options
+  gradient: boolean = true;
+  showLegend: boolean = true;
+  showLabels: boolean = true;
+  isDoughnut: boolean = true;
+  legendPosition: string = 'below';
 
-  optionsMedicamentos: any = {
-    legend: {
-      position: 'bottom',
-      labels: {
-        fontSize: 20
-      },
+  colorTipoAnimal = {
+    domain: ['#89D5C9', '#FAC172', '#E25B45', '#ADC865']
+  };
 
-    },
-    title: {
-      text: 'Tipos de Pets',
-      display: true,
-      fontSize: 40,
-    }
-  }
+  colorDisponibilidade = {
+    domain: ['#264653', '#e76f51']
+  };
 
-  constructor() { }
+  constructor(
+    private appService: AppServiceService,
+  ) {  }
 
   ngOnInit(): void {
+    this.getAnimais()
   }
 
-  // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+
+  private getAnimais() {
+    this.appService.getAnimais().subscribe((res: any) => {
+      this.animais = res;
+      this.filterTipoAnimais(this.animais.content);
+      this.filterDisponibilidadeAnimais(this.animais.content);
+    })
   }
 
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+  private filterTipoAnimais(animais: any) {
+
+    const cachorro = animais.filter(item => item.tipo === PetTipo.CACHORRO)
+    const qtdcachorro = cachorro.length
+
+    const gato = animais.filter(item => item.tipo === PetTipo.GATO)
+    const qtdgato = gato.length
+
+    const passaro = animais.filter(item => item.tipo === PetTipo.PASSARO)
+    const qtdpassaro = passaro.length
+
+    const peixe = animais.filter(item => item.tipo === PetTipo.PEIXE)
+    const qtdpeixe = peixe.length
+
+    this.tipoAnimal = [
+    {
+      "name": "Cachorro",
+      "value": qtdcachorro
+    },
+    {
+      "name": "Gato",
+      "value": qtdgato
+    },
+    {
+      "name": "Pássaro",
+      "value": qtdpassaro
+    },
+    {
+      "name": "Peixe",
+      "value": qtdpeixe
+    },
+    ]
   }
+
+  private filterDisponibilidadeAnimais(animais: any) {
+
+    const disponivel = animais.filter(item => item.disponibilidade === PetDisponibilidade.DISPONIVEL)
+    const qtddisponivel = disponivel.length
+
+    const indisponivel = animais.filter(item => item.disponibilidade === PetDisponibilidade.INDISPONIVEL)
+    const qtdindisponivel = indisponivel.length
+    this.disponibilidade = 
+    [
+      {
+        "name": "Disponível",
+        "value": qtddisponivel
+      },
+      {
+        "name": "Indisponível",
+        "value": qtdindisponivel
+      },
+      ]
+  }
+
+  
+ 
+
+
 }
+
