@@ -64,8 +64,10 @@ export class PetsEditComponent implements OnInit {
 
   
   changeForm() {
-    // this.addPetForm.value.dataCadastro = `${this.addPetForm.value.dataCadastro}T00:00:00.325Z`
+    this.editPetForm.value.dataCadastro = "2021-07-26T22:00:59.963+00:00"
     this.editPetForm.value.idade = parseInt(this.editPetForm.value.idade)
+    console.log(this.editPetForm.value)
   }
 
+  
 }

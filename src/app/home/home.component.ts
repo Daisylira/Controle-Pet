@@ -14,4 +14,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logoff(){
+    localStorage.setItem('logged','false')
+    // this.ngOnInit()
+  }
+
+
 }

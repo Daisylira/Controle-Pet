@@ -52,7 +52,7 @@ export class MedicamentosComponent implements OnInit {
 
     this.bsModalRef = this.modalService.show(ExclusionModalComponent, { initialState, class: 'modal-lg' });
     this.bsModalRef.content.closeBtnName = 'Close';
-    this.bsModalRef.content.added.subscribe((res: boolean) => {
+    this.bsModalRef.content.deleted.subscribe((res: boolean) => {
       if (res) {
         this.getMedicamentos()
       }
@@ -68,7 +68,7 @@ export class MedicamentosComponent implements OnInit {
     };
     this.bsModalRef = this.modalService.show(MedicamentosEditModalComponent, { initialState, class: 'modal-lg' });
     this.bsModalRef.content.closeBtnName = 'Close';
-    this.bsModalRef.content.added.subscribe((res: boolean) => {
+    this.bsModalRef.content.edited.subscribe((res: boolean) => {
       if (res) {
         this.getMedicamentos()
       }

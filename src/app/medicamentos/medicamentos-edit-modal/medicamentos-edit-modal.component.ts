@@ -53,8 +53,6 @@ export class MedicamentosEditModalComponent implements OnInit {
         console.log(res)
         this.mgs = "O cadastro foi alterado com sucesso!";
         this.edited.emit(true)
-
-
       },
         () => {
           this.mgs = "Erro ao alterar o cadastro, por favor tente novamente."
@@ -65,7 +63,7 @@ export class MedicamentosEditModalComponent implements OnInit {
 
   
   changeForm() {
-    // this.addPetForm.value.dataCadastro = `${this.addPetForm.value.dataCadastro}T00:00:00.325Z`
+    this.editMedicamentoForm.value.dataValidade = "2020-12-31T00:00:00.000+00:00"
     this.editMedicamentoForm.value.idade = parseInt(this.editMedicamentoForm.value.idade)
   }
 

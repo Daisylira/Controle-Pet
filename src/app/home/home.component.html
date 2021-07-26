@@ -5,18 +5,23 @@
         </div>
         <ul class="nav flex-column bg-white mb-0 mt-5 menu-option">
             <li class="nav-item pb-3">
-                <a routerLink="/home/indicadores"  class="nav-link text-dark">
+                <a routerLink="/home/indicadores"  class="nav-link text-dark"  routerLinkActive="active-route" >
                     Indicadores <fa-icon [icon]="faAngleRight" class="fa-lg icon"></fa-icon>
                 </a>
             </li>
             <li class="nav-item pb-3">
-                <a routerLink="/home/pets"  class="nav-link text-dark">
+                <a routerLink="/home/pets"  class="nav-link text-dark"  routerLinkActive="active-route">
                     Pets <fa-icon [icon]="faAngleRight" class="fa-lg icon"></fa-icon>
                 </a>
             </li>
             <li class="nav-item">
-                <a routerLink="/home/medicamentos"  class="nav-link text-dark">
+                <a routerLink="/home/medicamentos"  class="nav-link text-dark"  routerLinkActive="active-route">
                     Medicamentos <fa-icon [icon]="faAngleRight" class="fa-lg icon"></fa-icon>
+                </a>
+            </li>
+            <li class="nav-item mt-5">
+                <a routerLink="/login" (click)="logoff()" class="nav-link sair"  routerLinkActive="active-route">
+                    Log out <fa-icon [icon]="faAngleRight" class="fa-lg icon"></fa-icon>
                 </a>
             </li>
         </ul>

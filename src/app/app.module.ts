@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 // Components
 import { HomeComponent } from './home/home.component';
@@ -53,7 +54,7 @@ import { MedicamentosAddComponent } from './medicamentos/medicamentos-add/medica
     FormsModule,
     ReactiveFormsModule,
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
 
   providers: [],

@@ -7,11 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  showLogin: boolean = true;
+  logged: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.logged = JSON.parse(localStorage.getItem('logged'))
   }
+
+  login(){
+    localStorage.setItem('logged','true')
+    this.ngOnInit()
+  }
+
 
 }
